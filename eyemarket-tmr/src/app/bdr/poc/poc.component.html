@@ -1,0 +1,84 @@
+<div class="container _content" *ngIf="!loading">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-head mt-2 mb-2 p-3 pl-0" style="background-color: rgba(167, 167, 167, 0.33); border: 1px solid grey; color: white; font-size: 18px;">
+                <i class="fa fa-arrow-left" style="color: white;" aria-hidden="true" (click) = "backFunc()"></i>
+                <span class="offset-4">Tasks</span>
+            </div>
+
+            <div class="card-bod p-3 mt-1 d-flex offset-1"
+            [ngStyle]="{ 'border-left': (traffic.chiller=='pending' || traffic.chiller=='Awaiting AI')? '5px solid yellow' : (traffic.chiller=='success')? '5px solid green' : (traffic.chiller=='bad')? 'red' : '5px solid rgb(192, 82, 226)' }" 
+            *ngIf="success"
+            onclick="startCamInIndexHtml()" 
+            (click)="snapShot('chiller')">
+               Chiller Execution
+               <i class="fa fa-camera ml-auto" aria-hidden="true"></i>
+            </div>
+
+            <div class="card-bod p-3 mt-1 d-flex offset-1" *ngIf="failure" (click)="handleError()" >
+                {{alert}}
+               <i class="fa fa-camera ml-auto" aria-hidden="true"></i>
+            </div>
+
+            <div
+            class="card-bod p-3 mt-1 d-flex offset-1" 
+            [ngStyle]="{ 'border-left': (traffic.poster=='pending' || traffic.poster=='Awaiting AI')? '5px solid yellow' : (traffic.poster=='success')? '5px solid green' : (traffic.poster=='bad')? 'red' : '5px solid rgb(192, 82, 226)' }" 
+            *ngIf="success" 
+            onclick="startCamInIndexHtml()" 
+            (click)="snapShot('poster')">
+                <!-- Price Poster -->
+                IbShopnow Poster
+                <i class="fa fa-camera ml-auto" aria-hidden="true"></i>
+             </div>
+
+            <div 
+            class="card-bod p-3 mt-1 d-flex offset-1" 
+            [ngStyle]="{ 'border-left': (traffic.chair=='pending' || traffic.chair=='Awaiting AI')? '5px solid yellow' : (traffic.chair=='success')? '5px solid green' : (traffic.chair=='bad')? 'red' : '5px solid rgb(192, 82, 226)' }" 
+            *ngIf="success" 
+            onclick="startCamInIndexHtml()" 
+            (click)="snapShot('chair')">
+                <!-- Chairs / Table -->
+                Trophy Stout Availability
+                <i class="fa fa-camera ml-auto" aria-hidden="true"></i>
+             </div>
+             
+             <div *ngIf="success"
+                (click)="opportunity()"
+                 onclick="startCamInIndexHtml()" 
+                 class="card-head mt-5 p-3 text-center" 
+                 style="background-color: rgba(167, 167, 167, 0.33); color: #fff; font-size: 18px;">
+                <span>Opportunity</span>
+            </div>
+
+             <div 
+             class="card-head mt-5 p-3 text-center" 
+             (click)="survey()"
+             [ngStyle]="{ 'border-left': (traffic.survey=='pending' || traffic.survey=='success')? '5px solid green' : '5px solid rgb(192, 82, 226)', 'background-color': 'rgba(167, 167, 167, 0.33)', 'color': 'white', 'font-size': '18px' }"
+             >
+                <span>Survey</span>
+            </div>
+           
+            
+        </div>
+    </div>
+</div>
+
+<div class="container _content" *ngIf="loading">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-head text-center text-justify" 
+            style="background-color: #ee611f;">
+                <h3 style="font-size: 16px; letter-spacing: 1px" class="mt-1">Validation Report</h3>
+            </div>
+            <div class="card-body text-justify text-center pt-5" style="font-size: 15px; color: white">
+                <span *ngIf="!success && !failure" class="letter-spacing: 2px">Please wait, Validation in progress.... </span>
+                <span *ngIf="success" class="text-justify letter-spacing: 2px">Validation Successfull! You are within 50 meters proximity to this Poc!</span>
+                <span *ngIf="failure" class="text-justify letter-spacing: 2px">You are beyond 50meters proximity to this Poc! </span>
+            </div>
+            <div class="card-footer  ml-auto text-center mr-1" >
+                <span *ngIf="success || failure" class="text-justify" (click)="okThanks()">Ok, Thanks!</span>
+                <span *ngIf="!success && !failure">Validating...</span>
+            </div>
+        </div>
+    </div>
+</div>

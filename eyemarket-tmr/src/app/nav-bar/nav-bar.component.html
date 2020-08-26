@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-sm">
+
+    <!-- Use any element to open the sidenav -->
+    <span *ngIf="isAuthenticated && isBdr=='BDR'" (click)="openSideNav()" class="text-light">
+        <i class="fa fa-bars fa-lg d-block d-md-none" style="color: #f20707;" aria-hidden="true"></i>
+    </span> 
+
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#" class="text-light" *ngIf="!isAuthenticated || isBdr!=='BDR'"><img src="/assets/images/logo.png" alt="" height="50"></a>
+    
+    <!-- Links -->
+    <!-- <ul class="navbar-nav offset-md-2">
+      <li class="nav-item">
+        <a class="nav-link text-light" href="#">Eye Market</a>
+      </li>
+    </ul> -->
+
+    <span (click)="logout()" style="color: #f20707; cursor: pointer;" class="ml-auto" *ngIf="(isAuthenticated || isAdminAuthenticated) && isBdr!=='BDR'" >Logout<i class="fa fa-sign-out ml-2" aria-hidden="true"></i></span>
+
+    <a class="navbar-brand" href="#" class="text-light" *ngIf="isAuthenticated && isBdr=='BDR'"><img src="/assets/images/logo.png" alt="Eye Market Logo"  height="50"></a>
+</nav>

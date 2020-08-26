@@ -1,0 +1,116 @@
+
+html,body{
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+    }
+    
+    .container{
+    height: 100%;
+    align-content: center;
+    }
+    
+    .card{
+        height: 85vh;
+        position: absolute;
+        top: 12%;
+        width: 350px;
+        background-color: rgba(0,0,0,0.65) !important;
+    }
+    
+    .social_icon span{
+        font-size: 60px;
+        margin-left: 10px;
+        color: #f20707;
+    }
+    .social_icon span:hover{
+    color: white;
+    cursor: pointer;
+    }
+    
+    .card-head h3{
+    color: white;
+    background-color: #f20707;
+    padding: 1px;
+    }
+
+    .card-head:hover {
+        background-color: white;
+        color: black;
+    }
+    
+    .input-group-prepend span{
+    width: 50px;
+    background-color: #f20707;
+    color: black;
+    border:0 !important;
+    }
+    
+    .loading{
+    color: #f20707;
+    background-color: #000;
+    opacity: .8;
+    font-weight: bold;
+    width: 50%;
+    }
+
+    .card-footer {
+        background-color: #f20707;
+        color: white;
+        width: 50%;
+        border-radius: 5px;
+    }
+    
+    .card-bod {
+        background-color: rgba(167, 167, 167, 0.33);
+        color: white;
+        font-size: large;
+        width: 100%;
+        border-radius: 6px;
+        
+    }
+
+    .card-bod div {
+        /* border-bottom: 1px solid #F29F05; */
+        text-justify: auto;
+        letter-spacing: 1px;
+    }
+
+    tr:nth-child(odd) {
+        background-color:  #CFD5EB;
+        font-size: 15px;
+        text-decoration: none;
+        color: black;
+    }
+    tr:nth-child(even) {
+        background-color: #E9ECF5;
+        font-size: 15px;
+        text-decoration: none;
+        color: black;
+    }
+
+    thead tr {
+        background-color: #4473C5;
+        color: whitesmoke;
+       
+    }
+
+    th {
+        font-weight: normal;
+        letter-spacing: 0.5px;
+    }
+    .card-bod {
+        background-color: white;
+        font-size: 15px;
+        text-decoration: none;
+        color: black;
+        max-width: 100%;
+        overflow-y: scroll;
+    }
+    
+
+    img {
+        border-radius: 30px;
+    }
+
+
+    

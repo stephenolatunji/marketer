@@ -1,0 +1,104 @@
+<div class="container _content">
+    
+    <div class="head">
+        <i class="fa fa-arrow-left" style="color: black;" aria-hidden="true" (click)="backFunc()"></i> 
+        <span class="offset-4">Survey</span> 
+    </div>
+
+    <ol class="survey list-group" *ngIf="slide1">
+        <li class="list-group-item text-justify"> 
+            <span class="font-weight-bold mr-3">1.</span>
+            <span>Is IBL Chiller present in your Outlet?</span>
+        </li>
+        <li class="list-group-item text-center"> 
+            <input type="radio" class="mr-2" id="yes" name="q1" value="yes" [(ngModel)]="survey.q1">
+            <label for="yes">Yes</label>
+            <input type="radio" class="offset-2 mr-2" id="no" name="q1" value="no" [(ngModel)]="survey.q1">
+            <label for="no">No</label><br>
+        </li>
+    </ol>
+    
+    <ol class="survey list-group" *ngIf="slide1">
+        <li class="list-group-item text-justify"> 
+            <span class="font-weight-bold mr-3">2.</span>
+            <span>How many IBL Chiller in the Outlet?</span>
+        </li>
+        <li class="list-group-item text-center"> 
+            <input type="number" placeholder="0" id="q2" name="q2" autofocus style="border: 0; color: #f20707;" [(ngModel)]="survey.q2">
+            <br>
+        </li>
+    </ol>
+
+    <ol class="survey list-group" *ngIf="slide1">
+        <li class="list-group-item text-justify"> 
+            <span class="font-weight-bold mr-3">3.</span>
+            <span class="text-center offset-3">Chiller Type</span>  
+        </li>
+        <li class="list-group-item text-center"> 
+            <input type="radio" class="mr-3" id="glass" name="q3" value="glass" [(ngModel)]="survey.q3">
+            <label for="glass" >Glass</label>
+            <input type="radio" class="offset-2 mr-3" id="chest" name="q3" value="chest" [(ngModel)]="survey.q3">
+            <label for="chest">Chest</label><br>
+        </li>
+    </ol>
+    
+    <ol class="survey list-group" *ngIf="slide1">
+        <li class="list-group-item text-justify"> 
+            <span class="font-weight-bold mr-3">4.</span>
+            <span class="offset-3">Cooler Status</span>  
+        </li>
+        <li class="list-group-item text-center"> 
+            <input type="radio" id="working" name="q4" value="working" [(ngModel)]="survey.q4">
+            <label for="working" class="offset-1">Working</label>
+            <input type="radio" class="offset-2" id="not_working" name="q4" value="not_working" [(ngModel)]="survey.q4">
+            <label for="chest" class="offset-1">Not Working</label><br>  
+        </li>
+    </ol>  
+    
+    <ol class="survey list-group" *ngIf="slide2">
+        <li class="list-group-item text-justify"> 
+            <span class="font-weight-bold mr-3">5.</span>
+            <span>How many Cases of Competitor brands weekly</span>  
+        </li>
+        <li class="list-group-item text-center"> 
+            <input type="number" placeholder="0" id="q5" name="q5" autofocus style="border: 0; color: #f20707;" [(ngModel)]="survey.q5">
+        </li>
+    </ol>
+
+    <ol class="survey list-group" *ngIf="slide2">
+        <li class="list-group-item text-justify"> 
+            <span class="font-weight-bold mr-3">6.</span>
+            <span>How many Cases of IBL products purchased weekly?</span>  
+        </li>
+        <li class="list-group-item text-center"> 
+            <input type="number" placeholder="0" id="q6" name="q6" autofocus style="border: 0; color: #f20707;" [(ngModel)]="survey.q6">
+        </li>
+    </ol>
+
+
+    <ol class="survey list-group" *ngIf="slide2">
+        
+        <li class="list-group-item text-justify"> 
+            <span class="font-weight-bold mr-3">7.</span>
+            <span>Is there a competitor Chiller in Outlet?</span>  
+            
+        </li>
+        <li class="list-group-item text-center"> 
+            <input type="radio" id="yes" name="q7" value="yes" [(ngModel)]="survey.q7"> 
+            <label for="yes" class="offset-1">Yes</label>
+            <input type="radio" class="offset-2" id="no" name="q7" value="no" [(ngModel)]="survey.q7">
+            <label for="no" class="offset-1">No</label>
+        </li>
+    </ol>
+
+    <div class="d-flex" *ngIf="!success">
+        <button class="col-6 mt-5" (click)="previous()" *ngIf="index > 1" >Previous</button>
+        <button class="col-6 btn2 mt-5" (click)="submit()" *ngIf="index > 1" >Submit</button>
+        <button class="col-12 ml-auto btn2 mt-1" (click)="next()" *ngIf="index < 2">Next</button>
+    </div>
+
+    <div class="success text-justify text-center" *ngIf="success">
+        <img src="assets/images/logo.png" alt="" width="240"> <br/>
+        <span class="text-dark font-weight-bold">is thinking...</span> 
+      </div>
+</div>

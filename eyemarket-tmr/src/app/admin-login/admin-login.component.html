@@ -1,0 +1,11 @@
+<div class="card row col-md-6 justify-content-center ml-1" style="height: 50vh;">
+    <div class="d-none d-md-block col-md-3 card_ text-center">
+        <img src="assets/images/logo.png" alt="" height="160" width="240">
+    </div>
+    <form class="offset-md-2 box col-md-6 p-md-3" (submit)="handleSubmit()">
+        <span class="text-center offset-1 font-weight-bold" style="font-size: 13px;">{{notice}}</span>
+        <input class="form-control col-11" type="text" name="email" [(ngModel)]="admin.email" id="" placeholder="Email: xxx@gcn.ab-inbev.com">
+        <input class="form-control col-11" type="password" name="password" [(ngModel)]="admin.password" id="" placeholder="Password">
+        <button class="form-control col-8 col-md-5 offset-2 offset-md-4" style="font-size: 13px;">{{loading}}</button>
+    </form>
+</div>

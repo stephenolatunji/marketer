@@ -1,0 +1,82 @@
+<div class="container-md my-3">
+  <h4 class="text-white text-center">{{ outlet.name }} Pocs</h4>
+  <div class="mt-4 card p-4">
+    
+    <div>
+      <ul class="tasks">
+
+        <li class="mt-3">
+          <button class="btn bg-brand text-white text-center btn-block">
+            TASKS
+          </button>
+        </li>
+
+        <li 
+        class="mt-4" 
+        onclick="startCamInIndexHtml()" 
+        (click)="snapShot()"
+        >
+          <button 
+          [ngStyle] = "{ 'border-left':'8px solid yellow' }"
+          class="btn task text-center btn-block"
+          >
+            Chiller Execution
+          </button>
+        </li>
+
+        <li 
+        class="mt-4"
+        >
+          <button  
+          [ngStyle] = "{ 'border-left':'8px solid grey' }"
+          class="btn task text-center btn-block"
+          >
+            Price Poster
+          </button>
+        </li>
+
+        <li 
+        class="mt-4"
+        >
+          <button 
+          [ngStyle] = "{ 'border-left':'8px solid green' }"
+          class="btn task text-center btn-block"
+          >
+            Chairs/Table
+          </button>
+        </li>
+
+        <li 
+        class="mt-4"
+        >
+          <button 
+          [ngStyle] = "{ 'border-left':'8px solid grey' }"
+          class="btn task text-center btn-block"
+          >
+            Glassware
+          </button>
+        </li>
+
+        <li class="mt-4">
+          <button 
+          class="btn bg-brand text-white text-center btn-block"
+          (click)="opportunity()"
+          onclick="startCamInIndexHtml()" 
+          >
+            Opportunity
+          </button>
+        </li>
+
+        <li class="mt-4">
+          <button 
+          [ngStyle] = "{ 'border-left':'8px solid grey' }"
+          class="btn bg-brand text-white text-center btn-block"
+          (click)="survey()"
+          >
+           Survey
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

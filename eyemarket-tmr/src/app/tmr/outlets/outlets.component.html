@@ -1,0 +1,44 @@
+<section class="my-3 container-md">
+  <h5 class="text-white text-center">Select Outlet to execute</h5>
+  <div class="mt-4">
+    <div class="card p-4">
+      <h5 class="pb-2 border-bottom card__title text-center">
+        Cesar Robles (BDR)
+      </h5>
+      
+      <div class="mt-1 body">
+        <span class="offset-1" style="color: #f20707; border-bottom: 1px solid #f20707;">Pocs Assigned</span>
+        <ul class="outlets-list">
+          <li *ngFor="let outlet of outlets">
+            <a
+              [routerLink]="['/outlet', outlet.id]"
+              routerLinkActive="router-link-active"
+            >
+              <article class="outlet" [title]="'Status: ' + outlet.status">
+                <span
+                  [class]="
+                    outlet.status === 'none'
+                      ? 'outlet__status'
+                      : outlet.status === 'processing'
+                      ? 'outlet__status bg-warning'
+                      : 'outlet__status bg-success'
+                  "
+                ></span>
+                <p
+                  [class]="
+                    outlet.status === 'none'
+                      ? 'outlet__name font-weight-bold'
+                      : 'outlet__name'
+                  "
+                >
+                  {{ outlet.name }}
+                </p>
+              </article>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <span (click)="backFunc()" class="text-center close">close</span>
+    </div>
+  </div>
+</section>

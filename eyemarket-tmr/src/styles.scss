@@ -1,0 +1,37 @@
+@import "./assets/scss/utils/rem-calc";
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: url("https://previews.123rf.com/images/olegdudko/olegdudko1507/olegdudko150703070/42076325-supermarket-background-market-.jpg");
+  /* filter: blur(4px);
+    -webkit-filter: blur(4px); */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    z-index: -1;
+  }
+}
+
+._content {
+  display: none; 
+  @media screen and (max-width: 600px){
+    display: block; 
+  }
+}

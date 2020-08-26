@@ -1,0 +1,23 @@
+$colors: (
+  brand: #f20707,
+  "white": #ffffff,
+  gray100: #f9f9fb,
+  gray200: #eeeeee,
+  gray300: #dddddd,
+  gray400: #aaaaaa,
+  gray500: #999999,
+  gray600: #979797,
+  gray700: #333333,
+  "black": #000000,
+  danger: #d0011b,
+  success: #56d831,
+  info: #49adff,
+  warning: #ffcd05
+);
+
+/*
+  Allows you to use `color: color(primary);` in your stylesheet
+*/
+@function color($color) {
+  @return map-get($map: $colors, $key: $color);
+}

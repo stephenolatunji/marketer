@@ -1,0 +1,27 @@
+<div class="bg _content" [ngStyle]="{'background-color':(success)? 'white':'black'}">
+  <div id="content" *ngIf="!success" class="">
+    <div id="c" class="text-center">
+      <video id="video" class="">Video stream not available.</video>
+      <img id="photo" class="mt-5 p-2" alt="The screen capture will appear in this box.">
+     
+      
+      <button id="startbutton"><i class="fa fa-camera" aria-hidden="true" style="font-size: 30px; padding: 10px;"></i></button>
+      <span id="back" style="color: #f20707;" (click)="backFunc()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+    </div>
+    <div class="d-flex container">
+      <button id="reSnap" onclick="startCamInIndexHtml()">Re-Take</button>
+      <button id="proceed" (click)="proceed()" class="ml-auto" *ngIf="data_.value!=='opportunity'">Submit</button>
+      <button id="proceed" (click)="proceed()" class="ml-auto" *ngIf="data_.value=='opportunity' || data_.value=='survey'">Proceed</button>
+    <!-- <button id="proceed" (click)="proceed()" class="ml-auto"><a style="color: white;" id="img" href="" download="chiller{{pocId}}"> Proceed</a></button> -->
+    </div>
+  </div>
+
+  <div class="success text-justify text-center container" *ngIf="success">
+    <img src="assets/images/logo.png" alt="" width="240"> <br/>
+    <span class="text-dark font-weight-bold">is thinking...</span> 
+  </div>
+
+</div>
+<!-- <div class="output" id="output">
+</div> -->
+<canvas id="canvas"></canvas>

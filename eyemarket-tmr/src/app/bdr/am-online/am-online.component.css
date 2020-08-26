@@ -1,0 +1,44 @@
+
+html,body{
+    height: 50%;
+    font-family: 'Numans', sans-serif;
+    }
+    
+    .container{
+    height: 10%;
+    align-content: center;
+    position: relative;
+    }
+    
+    .card{
+    height: 170px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    /* z-index: 2; */
+    width: 350px;
+    background-color: black !important;
+    }
+    
+    .card-header h3{
+    color: white;
+    background-color: #B11917;
+    padding: 6px;
+    }
+
+    .card-body {
+        color: white;
+        font-size: 17px;
+    }
+
+    .card-footer {
+        background-color: green;
+        color: white;
+        width: 50%;
+    }
+
+    
+ 
+    
+    

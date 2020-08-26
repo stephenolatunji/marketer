@@ -1,0 +1,58 @@
+<div class="container _content">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-head mt-2 mb-2 p-3 pl-0" style="background-color: rgba(167, 167, 167, 0.33); border: 1px solid grey; color: white; font-size: 18px;">
+                <i class="fa fa-arrow-left" *ngIf="!show" style="color: white;" aria-hidden="true" (click)="backFunc()"></i>
+                <i class="fa fa-arrow-left" *ngIf="show" style="color: white;" aria-hidden="true" (click)="backFunc_()"></i>
+                <span class="offset-3">{{header}}</span>
+            </div>
+            <div class="card-head mt-1 pl-0 text-center"  *ngIf="!show" style="background-color: rgba(167, 167, 167, 0.33); border: 1px solid grey; color: white; font-size: 18px;">
+                <span>{{subHeader}}</span>
+            </div>
+            <div class="card-bod">
+
+                <table class="table bg-light"  *ngIf="!show">
+                    <thead>
+                        <tr class="text-center">
+                            <th>s/n</th>
+                            <th>Image</th>
+                            <th>Outlet</th>
+                            <th>Task</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Processing</th>
+                            <th>Processed</th>
+                            <th style="white-space: nowrap;">Good Execution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let task of tasks; let i = index">
+                            <td class="align-middle">{{i+1}}</td>
+                            <td (click)="image(task?.image)" class="align-middle"><img src="{{task?.image}}" alt="image" width="35" height="35"></td>
+                            <td class="align-middle">{{task?.outlet}}</td>
+                            <td class="align-middle" *ngIf="task?.taskType=='chair'" style="white-space: nowrap;">Trophy Stout Availabilty</td>
+                            <td class="align-middle" *ngIf="task?.taskType=='poster'" style="white-space: nowrap;">IbShopnow Poster</td>
+                            <td class="align-middle" *ngIf="task?.taskType=='chiller'" style="white-space: nowrap;">Chiller</td>
+                            <td class="align-middle" style="white-space: nowrap;">{{task?.date}}</td>
+                            <td class="align-middle" style="white-space: nowrap;">{{task?.time}}</td>
+                            <td class="text-center align-middle">
+                                <i class="fa fa-check" style="color: green;" aria-hidden="true" *ngIf="task?.action=='pending' || task?.action=='Awaiting AI'"></i>
+                                <i class="fa fa-times"  style="color: #f84d4d" aria-hidden="true" *ngIf="task?.action!=='pending' && task?.action!=='Awaiting AI'"></i>
+                            </td>
+                            <td class="text-center align-middle">
+                                <i class="fa fa-check" style="color: green;" aria-hidden="true" *ngIf="task?.action=='success' || task?.action=='bad'"></i>
+                                <i class="fa fa-times ml-auto"  style="color: #f84d4d" aria-hidden="true" *ngIf="task?.action!=='success' && task?.action!=='bad'"></i>
+                            </td>
+                            <td class="text-center align-middle">
+                                <i class="fa fa-check" style="color: green;" aria-hidden="true" *ngIf="task?.action=='success'"></i>
+                                <i class="fa fa-times ml-auto"  style="color: #f84d4d" aria-hidden="true" *ngIf="task?.action!=='success'"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <img class="mt-1 animate__animated animate__slideInDown" *ngIf="show" src="{{_image}}" alt="" style="width: 100%; border-radius: 0%;">
+            <!-- <img class="mt-1 container animate__animated animate__slideInDown" *ngIf="show" src="{{_image}}" alt="" style="width: 100%; border-radius: 0%;"> -->   
+        </div>
+    </div
+></div>

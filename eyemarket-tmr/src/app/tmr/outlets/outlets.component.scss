@@ -1,0 +1,56 @@
+@import "../../../assets/scss/abstract/colors";
+@import "../../../assets/scss/utils/rem-calc";
+
+.card {
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+    0 100px 80px rgba(0, 0, 0, 0.07);
+
+    .body {
+      max-height: 60vh;
+      overflow-y: scroll;
+    }
+}
+
+.outlets-list {
+  padding-left: 0;
+  list-style: none;
+
+  a {
+    text-decoration: none;
+    &:hover article {
+      background-color: color(gray200);
+    }
+
+    article {
+      transition: 0.3s ease-in-out;
+    }
+  }
+
+  .outlet {
+    display: flex;
+    align-items: center;
+    padding: rem-calc(16);
+
+    &__status {
+      height: rem-calc(8);
+      width: rem-calc(8);
+      border-radius: rem-calc(8);
+      background-color: color(gray300);
+    }
+
+    &__name {
+      text-decoration: none;
+      margin: 0;
+      margin-left: rem-calc(12);
+      color: color(gray700);
+    }
+  }
+}
+
+.close {
+  color:#f20707; border: 1px solid grey;
+  font-weight: bold; font-size: 19px;
+  padding: 4px 0 4px 0;
+}

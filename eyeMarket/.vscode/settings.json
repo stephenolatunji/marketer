@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.deploySubpath": ".",
+    "appService.defaultWebAppToDeploy": "/subscriptions/1897ed80-b379-4a14-9d08-e356b05b9bf1/resourceGroups/EyeMarketDev/providers/Microsoft.Web/sites/eyemarketer"
+}

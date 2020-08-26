@@ -1,0 +1,57 @@
+.modal-header {
+    background-color: #db6548;;
+}
+
+.content {
+    color: white;
+    font-size: 18px
+}
+
+.d-flex {
+    background: #FFF;
+    color: #000;
+    border-radius: 5px;;
+    font-weight: normal
+}
+
+.d-flex:hover{
+    background: #ee3939;
+    color: white;
+}
+
+html,body{
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+    }
+    
+    .container{
+    height: 100%;
+    align-content: center;
+    }
+    
+    .card{
+    height: 390px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* z-index: 2; */
+    width: 350px;
+    background-color: rgba(250, 246, 242, 0.63);
+    }
+
+    .card-header h3{
+    color: black;
+    border: 1px solid grey;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 17px
+    }
+
+
+
+    
+ 
+    
+ 
+    

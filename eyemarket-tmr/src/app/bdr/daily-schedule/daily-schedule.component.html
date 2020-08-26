@@ -1,0 +1,74 @@
+<div class="container _content">
+    <div class="d-flex justify-content-center h-100" id="top">
+        <div class="card">
+            <div class="card-header text-center">
+                <h3 class="btn-primary">Daily Call Schedule</h3>
+            </div>
+
+            <div class="card-header text-center p-2">
+                <button class="text-center p-1 mr-2" id="btnList" (click)="listDailySchedule(data)">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    Daily Schedule
+                </button>
+                <button class="text-center p-1 ml-2 pl-4 pr-4" id="btnAdd" (click)="addPoc()">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    Add Poc
+                </button>
+            </div>
+            
+            <div class="pl-2">
+                <i class="fa fa-arrow-circle-left font-weight-bold text-warning pr-3" (click)="backFunc()" aria-hidden="true" style="font-size: 25px"></i>
+            </div>
+<div style="overflow-y: scroll;">
+
+    <div class="content container pl-1 list-group" *ngIf="dailyScheduleShow">
+        <a href="javascript:void(0)" class="list-group-item disabled text-center mb-2" style="color: #000;">
+            Pocs Scheduled For {{day}} ({{pocsOnSchedule?.length}})
+        </a>
+        <a [routerLink]="['/poc',data?.id ]" class="list-group-item d-flex a" style="font-size: 15px;" *ngFor = "let data of pocsOnSchedule">
+            <span
+            class="traffic" 
+            [ngStyle]="{'background-color': (data?.taskPercentage > 99)? 'green':(data?.taskPercentage > '66')? 'yellow': (data?.taskPercentage > 33)? 'red' : 'rgb(192, 82, 226)',
+            'border': (data?.taskPercentage > 99)? '2px solid green':(data?.taskPercentage > '66')? '2px solid yellow': (data?.taskPercentage > 33)? '2px solid red' : '2px solid rgb(192, 82, 226)'}"
+            ></span>
+            {{ data?.outlet }}
+            <span class="ml-auto" *ngIf="data?.distance>999" style="font-size: 13px; color: #ee611f;">Above 1 km</span>
+            <span class="ml-auto" *ngIf="data?.distance<999" style="font-size: 13.5px; color: #ee611f;">{{data?.distance}} m</span>
+        </a>
+    </div>
+    <!-- Add Pocs -->
+    <div class="content container p-1 list-group" *ngIf="!dailyScheduleShow">
+        <a href="javascript:void(0)" style="white-space: nowrap;" class="list-group-item disabled text-center mb-2" style="color: #000;">
+            Select Poc to be added to {{day}} Schedule
+        </a>
+        <a (click) = "addThisPoc(data)" class="list-group-item" style="font-size: 15px;" *ngFor = "let data of pocsToAdd">
+
+            <div class=" d-flex">
+                <span class="traffic"
+                [ngStyle]="{'background-color': (data?.taskPercentage > 99)? 'green':(data?.taskPercentage > '66')? 'yellow': (data?.taskPercentage > 33)? 'red' : 'rgb(192, 82, 226)',
+                'border': (data?.taskPercentage > 99)? '2px solid green':(data?.taskPercentage > '66')? '2px solid yellow': (data?.taskPercentage > 33)? '2px solid red' : '2px solid rgb(192, 82, 226)'}"
+                ></span>
+                {{ data?.outlet }}
+                
+                <i class="fa fa-check ml-auto" style="color: green;" aria-hidden="true" *ngIf = "data.markMe"></i>
+                <i class="fa fa-plus-circle ml-auto"  style="color: green" aria-hidden="true"*ngIf = "!data.markMe"></i>
+            </div>  
+            
+            <div class="d-flex">
+                <span class="ml-auto" *ngIf="data?.distance>999" style="font-size: 13px; color: #ee611f;">Above 1 km</span>
+                <span class="ml-auto" *ngIf="data?.distance<999" style="font-size: 13.5px; color: #ee611f;">{{data?.distance}} m</span>
+            </div>
+        </a>
+    </div>
+</div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    
+
+<div class="arrow _content">
+    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+</div>

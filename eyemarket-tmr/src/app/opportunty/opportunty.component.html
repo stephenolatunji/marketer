@@ -1,0 +1,43 @@
+<div class="select mt-2 _content">
+  <i class="fa fa-arrow-left" style="color: wheat;" aria-hidden="true" onclick="startCamInIndexHtml()" (click)="backFunc()"></i> 
+  <span class="offset-4" *ngIf="!notice">Opportunity</span>
+  <span *ngIf="notice" class="offset-1" style="font-size: 17px;"> You have not selected any HashTag </span>
+  
+</div>
+<div class="p-3 container _content  mt-4" *ngIf="!success">
+    <div class="hashTag mt-3 d-flex" (click) = "opportunityFunc('promotion')">
+      #Promotion
+      <span class="ml-auto">
+        <i class="fa fa-check ml-auto" style="color: green;;" aria-hidden="true" *ngIf="opportunity.Promotion"></i>
+        <i class="fa fa-plus-circle ml-auto"  style="color: #f84d4d" aria-hidden="true" *ngIf="!opportunity.Promotion"></i>
+      </span>
+    </div>
+    <div class="hashTag mt-3 d-flex" (click) = "opportunityFunc('brandingOutlet')">
+      #BrandingOutlet
+      <span class="ml-auto">
+        <i class="fa fa-check ml-auto" style="color: green;" aria-hidden="true" *ngIf="opportunity.BrandingOutlet"></i>
+        <i class="fa fa-plus-circle ml-auto"  style="color: #f84d4d" aria-hidden="true" *ngIf="!opportunity.BrandingOutlet"></i>
+      </span>
+    </div>
+    <div class="hashTag mt-3 d-flex" (click) = "opportunityFunc('newChair')">
+      #NewChair/Table
+      <span class="ml-auto">
+        <i class="fa fa-check ml-auto" style="color: green;" aria-hidden="true" *ngIf="opportunity.NewChairTable"></i>
+        <i class="fa fa-plus-circle ml-auto"  style="color: #f84d4d" aria-hidden="true" *ngIf="!opportunity.NewChairTable"></i>
+      </span>
+    </div>
+    <div class="hashTag mt-3 d-flex"  (click) = "opportunityFunc('abs')">
+      #ABS
+      <span class="ml-auto">
+        <i class="fa fa-check ml-auto" style="color: green;" aria-hidden="true" *ngIf="opportunity.ABS"></i>
+        <i class="fa fa-plus-circle ml-auto"  style="color: #f84d4d" aria-hidden="true" *ngIf="!opportunity.ABS"></i>
+      </span>
+    </div>
+
+  <button class="offset-3" (click) = "handleSubmit()"  >Update</button>
+  </div>
+
+<div class="success text-justify text-center _content" *ngIf="success">
+  <img src="assets/images/logo.png" alt="" width="240"> <br/>
+  <span class="text-dark font-weight-bold">is thinking...</span> 
+</div>

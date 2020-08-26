@@ -1,0 +1,89 @@
+<div class="row m-1 pr-4" style="background-color: #fefefea8;" *ngIf="content">
+    <input type="search" class="search col-12 col-md-8" (keyup)="search()" placeholder="filter..." name="searchVal" id="search" [(ngModel)]="searchVal">
+
+    <!-- <div class="row"> -->
+
+        <div class="dropdown dropleft ml-3 mt-2">
+            <button class="btn dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Filter by <span style="color: 'grey'">{{filterBy}}</span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" (click)="filter_by('bdr')">BDR</a>
+              <a class="dropdown-item" (click)="filter_by('district')">District</a>
+              <a class="dropdown-item" (click)="filter_by('task_type')">Task Type</a>
+              <a class="dropdown-item" (click)="filter_by('exec_type')">Execution Type</a>
+              <a class="dropdown-item" (click)="filter_by('poc_id')">Poc Id</a>
+              <a class="dropdown-item" (click)="filter_by('date')">Date</a>
+            </div>
+        </div>
+    
+        <div class="number m-3 ml-5 cursor" [ngStyle]="{ color: initialPage==0? 'grey':'black', cursor: initialPage==0? 'not-allowed':'pointer' }" (click)="previous()">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        </div>
+        <div class="number mt-3" style="color: grey; letter-spacing: 2px;">
+            {{initialPage+1 + '-' + finalPage}}
+        </div>
+    
+        <div class="number m-3 mt-1 cursor" [ngStyle]="{ color: tempData.length >= finalPage? 'black':'grey', cursor: tempData.length>= finalPage? 'pointer':'not-allowed' }" (click)="next()">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </div>
+    
+          <div class="ml-auto mt-3 cursor" (click)="refresh()">
+            <i class="fa fa-refresh" aria-hidden="true"></i>
+          </div>
+    <!-- </div> -->
+
+
+</div>
+<div class="m-1 p-2 mt-0 contain" *ngIf="content">
+
+    <table class="table">
+        <thead style="border-bottom: 7px solid grey; font-size: 10px;">
+            <tr class="text-center">
+                <th>s/n</th>
+                <th style="white-space: nowrap;">Poc Id</th>
+                <th style="white-space: nowrap;">Task Id</th>
+                <th>Date</th>
+                <th>BDR</th>
+                <th>District</th>
+                <th style="white-space: nowrap;" class="text-center">Task Name</th>
+                <th style="white-space: nowrap;" class="text-center">Well Executed</th>
+                <th style="white-space: nowrap;" class="text-center">Glass/Chest</th>
+                <th style="white-space: nowrap;" class="text-center">White Space</th>
+                <th class="text-center">Contaminated</th>
+                <th style="white-space: nowrap;" class="text-center">Budweiser</th>
+                <th style="white-space: nowrap;" class="text-center">Trophy Can</th>
+                <th class="text-center">Trophy</th>
+                <th style="white-space: nowrap;" class="text-center">Trophy Stout</th>
+                <th style="white-space: nowrap;" class="text-center">Beta Malt</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr class="text-center" *ngFor="let data of trimmedDataForDisplay; let i = index">
+                <td>{{i + initialPage + 1}}</td>
+                <td>{{ data?.pocId }}</td>
+                <td>{{ data?.taskId }}</td>
+                <td style="white-space: nowrap;">{{ data?.date }}</td>
+                <td style="white-space: nowrap;">{{ data?.name }}</td>
+                <td>{{ data?.district }}</td>
+                <td>{{ data?.taskType == 'chiller'? 'Chiller' : data?.taskType == 'poster' ? 'Poster' : 'Trophy Availability' }}</td>
+                <td class="font-weight-bold" [ngStyle]="{color: (data?.action=='success' || data?.action=='good')? 'green' : data?.action=='bad'? 'red' : 'purple'}">{{ (data?.action=='success' || data?.action=='good')? 'Yes': data?.action=='bad'? 'No': 'Awaiting AI' }}</td>
+                <td>{{ data?.glass==1? 'Glass' : data?.chest==1? 'Chest' : 'Nil' }}</td>
+                <td class="font-weight-bold" [ngStyle]="{color: data?.white_space ? 'green' : data?.white_space==''? '' : 'red'}">{{ data?.white_space==true? 'Yes': data?.white_space==''? 'Nil' : 'No' }}</td>
+                <td class="font-weight-bold" [ngStyle]="{color: data?.contaminated ? 'green' : data?.contaminated==''? '' : 'red'}">{{ data?.contaminated==true? 'Yes':data?.contaminated==''? 'Nil' : 'No'}}</td>
+                <td style="font-weight: bold;">{{ data?.budweiser==0? '0' : data?.budweiser }}</td>
+                <td style="font-weight: bold;">{{ data?.trophy_can==0? '0' : data?.trophy_can }}</td>
+                <td style="font-weight: bold;">{{ data?.trophy==0? '0' : data?.trophy }}</td>
+                <td style="font-weight: bold;">{{ data?.trophy_stout==0? '0' : data?.trophy_stout }}</td>
+                <td style="font-weight: bold;">{{ data?.beta_malt==0 || data?.beta_malt==null? '0' : data?.beta_malt }}</td>
+                <td (click)="copyFunc(data?.image)" style="white-space: nowrap;"><i class="fa fa-copy"></i> copy</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="m-1 p-2 contain" *ngIf="!content">
+    <app-admin-login></app-admin-login>
+</div>

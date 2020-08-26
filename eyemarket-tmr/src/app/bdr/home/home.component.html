@@ -1,0 +1,44 @@
+<div id="map" class="animate__animated animate__bounceIn _content"></div>
+<img src="https://cdn.lowgif.com/full/511eaecca7dc7eed-animated-nigeria-flag-country-of-abflagscom-gif-clif-art.gif" height="30" width="50" alt="">
+<div class="container _content">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card"  *ngIf="showPocList">
+                <div class="c mr-1 ml-1 p-1 pl-2 pt-0">
+                    <div class="container d-flex tittle p-1">
+                        <span class="mr-auto">Outlet Name</span>
+                        <span>Distance</span>
+                    </div>
+                    <a href="javascript:void(0)" *ngFor = "let data of dataCollector;">
+                    <!-- <div class="col-2">{{i+1}}:</div>  -->
+                        <div 
+                        class="row" 
+                        style="font-size: 15px;"  
+                        *ngIf="data?.outlet!=='me'">
+                            <div 
+                            class="traffic" 
+                            [ngStyle]="{'background-color': (data?.taskPercentage > 99)? 'green':(data?.taskPercentage > '66')? 'yellow': (data?.taskPercentage > 33)? 'red' : 'grey', 'border': '1px solid white'}"
+                            ></div> 
+                            <div class="text-justify font-weight-bold" style="letter-spacing: 1px;color:  #000;">{{ data?.outlet }}</div><br />
+                        </div>
+                            
+                        <div class="text-justify ml-2 mb-2 d-flex" style="letter-spacing: 1px; color:  #0e0e0e; font-size: 13px;">
+                            <span class="mr-auto">{{data?.address}} </span>
+                            <span class="mr-2">{{data?.distance}}</span> 
+                        </div>
+                    </a>
+                <!-- <a [routerLink]="['/poc',data?.id ]" *ngFor = "let data of dataCollector; let i = index;" class="row" style="color: #F79520;">
+                    <div class="col-2">{{i+1}}:</div> 
+                    <div class="text-justify">{{ data?.outlet }}</div> <br/>
+                </a> -->
+            </div>
+            <span *ngIf="showPocList" class="span_ text-center offset-3" (click) = "hidePocList()">
+                Close
+                <i class="fa fa-eye-slash mr-2" aria-hidden="true"></i>
+            </span>
+        </div>
+        <div *ngIf="!showPocList" class="span__ text-center" (click) = "showPocListFunc()">
+            <i class="fa fa-eye mr-2" aria-hidden="true"></i>
+            Show Poc List
+        </div>
+    </div>
+</div>

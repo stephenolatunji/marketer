@@ -1,0 +1,68 @@
+<div class="container _content">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-head mt-2 mb-1 p-3 pl-0" style="background-color: rgba(167, 167, 167, 0.33); border: 1px solid grey; color: white; font-size: 18px;">
+                <i class="fa fa-arrow-left" style="color: white;" *ngIf="!search_" aria-hidden="true" (click)="backFunc()"></i>
+                <i class="fa fa-arrow-left" style="color: white;" aria-hidden="true" *ngIf="search_" (click)="backToDash()"></i>
+                <span class="offset-3">My Dashboard</span>
+            </div>
+            <div class="card-head mt-1 mb-2 p-2 pl-0 text-center" style="background-color: rgba(167, 167, 167, 0.33); border: 1px solid grey; color: white; font-size: 18px;">
+                <label for="searchThis">{{ notice }}</label>
+                <input type="search" class="form-control" name="searchThis" placeholder="search here!" id="" (keyup)="search($event)">
+            </div>
+            
+            <div class="card-bod p-3 mt-1" *ngIf="!search_">
+                <div class="text-center text-justify">
+                    Chiller
+                </div>
+                <div class="row">
+                    <a [routerLink] = "['/summary', '0', '0']" class="col-6 text-center p-2" style="border-right: 3px solid black;">
+                        <span>{{taskEval.completedChillerExecution}}%</span><br />
+                        Pocs Completed
+                    </a>
+                    <a [routerLink] = "['/summary', '1', '0']" class="col-6 ml-auto text-center p-2" style="border-left: 3px solid black;">
+                        <span>{{taskEval.goodChillerExecution}}%</span><br />
+                        Good Execution
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-bod p-3 mt-1" *ngIf="!search_">
+                <div class="text-center text-justify">
+                    IbShopnow Poster
+                </div>
+                <div class="row">
+                    <a [routerLink] = "['/summary', '0', '1']" class="col-6 text-center p-2" style="border-right: 3px solid black;">
+                        <span>{{taskEval.completedPosterExecution}}%</span><br />
+                        Pocs Completed
+                    </a>
+                    <a [routerLink] = "['/summary', '1', '1']" class="col-6 ml-auto text-center p-2" style="border-left: 3px solid black;">
+                        <span>{{taskEval.goodPosterExecution}}%</span><br />
+                        Good Execution
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-bod p-3 mt-1" *ngIf="!search_">
+                <div class="text-center text-justify">
+                    Trophy Stout Availabilty
+                </div>
+                <div class="row">
+                    <a [routerLink] = "['/summary', '0', '2']" class="col-6 text-center p-2" style="border-right: 3px solid black;">
+                        <span>{{taskEval.completedChairExecution}}%</span><br />
+                        Pocs Completed
+                    </a>
+                    <a [routerLink] = "['/summary', '1', '2']" class="col-6 ml-auto text-center p-2" style="border-left: 3px solid black;">
+                        <span>{{taskEval.goodChairExecution}}%</span><br />
+                        Good Execution
+                    </a>
+                </div>
+            </div>
+
+            <div *ngIf="search_">
+                <app-search [searchResult] = "searchResult"></app-search>
+            </div>
+
+        </div>
+    </div
+></div>

@@ -1,0 +1,31 @@
+<div *ngIf="isAuthenticated" id="mySidenav" class="sidenav bg-light _content" style="border-radius: '5px'; border: '1px solid grey'">
+    <div class="d-flex pb-1" style="border-bottom: 1px solid #f20707; background-color: #f20707; color: white;">
+        <a href="#" class="mr-auto text-light mt-2" style="white-space: nowrap">
+            Eye Market
+        </a>
+        <i class="fa fa-times-circle-o p-2 pt-3" style="font-size: 25px;" aria-hidden="true" (click)="closeNav()"></i>
+    </div>
+    
+    <a href="javascript:void(0)" (click)='startOperation()'  class="mt-3" style="white-space: nowrap">
+        <i class="fa fa-tasks mr-1" aria-hidden="true"></i>
+        Start Operation
+    </a>
+    <a href="javascript:void(0)" (click)="dashboard()" class=" mt-4" style="white-space: nowrap">
+        <i class="fa fa-user-circle-o mr-1" aria-hidden="true"></i>
+        My Dashboard
+    </a>
+    <a (click)="logout()" href="#" class=" mt-4 text-danger">
+        <i class="fa fa-sign-out mr-1" aria-hidden="true"></i>
+        Logout
+    </a>
+    <a (click)="refresh()" class=" mt-4 text-danger">
+        <i class="fa fa-refresh" aria-hidden="true"></i>
+        Refresh
+    </a>
+    <a href="#" class=" mt-4 text-info">Version: 3.0</a>
+</div>
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<div id="main" class="_content">
+    <app-login *ngIf="!isAuthenticated" ></app-login>
+</div>
